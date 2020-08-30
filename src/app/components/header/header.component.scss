@@ -1,0 +1,25 @@
+:host {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+
+  .sections {
+    display: flex;
+    justify-content: space-between;
+
+    .section  {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      img {
+        /* width: 50px; */
+        height: 65px;
+      }
+    }
+  }
+}
