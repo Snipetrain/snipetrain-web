@@ -3,6 +3,14 @@
     font-size: 24px;
     font-family: russo_oneregular;
     margin-bottom: 25px;
+    .title {
+      margin-right: 15px;
+    }
+  }
+  .loader-container {
+    display:flex;
+    justify-content: center;
+    margin-top: 100px;
   }
   .grid {
     display: flex;
@@ -15,13 +23,99 @@
 
     .card {
       box-shadow: 0 0.5rem 1rem 0 rgba(78, 19, 19, 0.171);
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 35px;
+
+        .title {
+          font-size: 16px;
+          font-family: russo_oneregular;
+        }
+      }
+
+
+      .list {
+        overflow: auto;
+        max-height: 600px;
+        margin-top: 15px;
+
+        .list-container {
+          max-width: 815px;
+          display: flex;
+          justify-content: space-between;
+
+          .section {
+            padding: 5px;
+            height: 100%;
+/*             border-right: 1px solid #20202088;
+            &:last-child {
+              border-right: none !important;
+            } */
+          }
+
+          .userprofile-container {
+            display: flex;
+            align-items: center;
+            width: 30%;
+            .position {
+              margin-right: 10px;
+              opacity: 0.8;
+              font-family: source_sans_proregular;
+
+
+              &.first {
+                color: #DAA520;
+                font-weight: bolder;
+                opacity: 1;
+              }
+              &.second {
+                color: #C0C0C0;
+                font-weight: bolder;
+                opacity: 1;
+              }
+              &.third {
+                color: #8C7853;
+                font-weight: bold;
+                opacity: 1;
+              }
+
+              .podium {
+                display: flex;
+                flex-direction: column;
+              }
+            }
+          }
+
+          .stats-container {
+            width: 60%;
+          }
+
+          .actions-container {
+            width: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            i {
+              font-size: 18px;
+              cursor: pointer;
+              padding: 10px;
+              border-radius: 10px;
+
+              &:hover {
+                background-color: #ffffff13;
+              }
+            }
+          }
+        }
+      }
+
+
     }
 
-    .list {
-      overflow: auto;
-      scrollbar-width: none;
-      max-height: 500px;
-    }
 
     .filters {
       width: 25%;

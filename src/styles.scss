@@ -1,5 +1,5 @@
 @import 'themes';
-
+@import '~overlayscrollbars/css/OverlayScrollbars.css';
 @import '~@nebular/theme/styles/globals';
 
 @include nb-install() {
@@ -34,6 +34,18 @@ html, body {
   border-top: none !important;
 }
 
+.nb-theme-custom-dark nb-list-item {
+  border-bottom: 1px solid #20202088 !important;
+}
+
 .nb-theme-custom-dark nb-list-item:last-child {
   border-bottom: none !important;
+}
+
+.nb-theme-custom-dark nb-user.size-medium .user-name {
+  font-family: source_sans_proregular !important;
+}
+
+.input-full-width::placeholder {
+  color: #ffffff91 !important;
 }

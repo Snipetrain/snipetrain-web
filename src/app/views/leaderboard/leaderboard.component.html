@@ -2,36 +2,75 @@
 <div class="leaderboard-container">
   <div class="title-line">
     <span class="title">Leaderboard</span>
+   <!--  <i class="fas fa-award"></i> -->
+  </div>
+  <div *ngIf="!players && leaderboardLoading" class="loader-container">
+    <app-spinner  [size]="75"></app-spinner>
   </div>
   <div class="grid">
     <div *ngIf="players" class="leaderboard">
       <nb-card class="card">
         <nb-card-body>
-          <div class="list">
-            <nb-list
-            nbInfiniteList
-            listenWindowScroll
-            [threshold]="500"
-            (bottomThreshold)="loadMore()">
-              <nb-list-item *ngFor="let player of players">
-                <nb-user size="medium"
-                  [name]="player.name"
-                  [title]="player.skill"
-                  [picture]="player.avatar">
-                </nb-user>
-              </nb-list-item>
-            </nb-list>
+          <div class="header">
+            <span class="title">Stats</span>
+            <app-spinner *ngIf="leaderboardLoading" [size]="30"></app-spinner>
           </div>
+          <overlay-scrollbars #scrollel [options]="scrollbarOptions" class="list">
+            <div #list class="list-container">
+              <nb-list>
+                <nb-list-item *ngFor="let player of players; let i=index;">
+                  <div class="userprofile-container section">
+                    <span
+                      class="position"
+                      [class.first]="i+1 === 1"
+                      [class.second]="i+1 === 2"
+                      [class.third]="i+1 === 3">
+                      <span *ngIf="i+1 !== 1 && i+1 !== 2 && i+1 !== 3">{{i+1}}.</span>
+                      <div *ngIf="i+1 === 1 ||i+1 === 2 ||i+1 === 3" class="podium">
+                        <i  class="fas fa-trophy"></i>
+                        <div [ngSwitch]="i+1">
+                          <span *ngSwitchCase="1">1st</span>
+                          <span *ngSwitchCase="2">2nd</span>
+                          <span *ngSwitchCase="3">3rd</span>
+                        </div>
+                      </div>
+                  </span>
+                    <nb-user size="medium"
+                      [name]="player.name"
+                      [title]="player.skill + ' Points'"
+                      [picture]="player.avatar">
+                    </nb-user>
+                  </div>
+
+                  <div class="stats-container section">
+
+                  </div>
+
+                  <div class="actions-container section">
+                    <i class="fas fa-ellipsis-v"></i>
+                  </div>
+
+                </nb-list-item>
+              </nb-list>
+            </div>
+          </overlay-scrollbars>
         </nb-card-body>
       </nb-card>
     </div>
-    <div class="filters">
+    <div *ngIf="players" class="filters">
       <nb-card class="card">
         <nb-card-body>
-
+          <div class="header">
+            <span class="title">Search</span>
+            <app-spinner *ngIf="filtersLoading" [size]="30"></app-spinner>
+          </div>
+          <div class="search-container">
+            <input type="text" nbInput fullWidth shape="semi-round" placeholder="Search: Name, SteamId">
+          </div>
         </nb-card-body>
       </nb-card>
     </div>
   </div>
 </div>
+<!-- <button (click)="test()">test</button> -->
 

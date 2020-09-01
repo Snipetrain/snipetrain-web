@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  version: '1.0.4',
   api: {
     endpoints: {
       rank: 'http://localhost:8090/api/rank',
