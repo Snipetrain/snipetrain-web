@@ -16,8 +16,8 @@ export class ApiService {
   /**
    * getAllRank
    */
-  public getAllRank(perPage: number): Observable<PlayerRank[]> {
-    return this.http.get<PlayerRank[]>(`${environment.api.endpoints.rank}/players?perPage=${perPage}`);
+  public getAllRank(perPage: number, searchString = ''): Observable<PlayerRank[]> {
+    return this.http.get<PlayerRank[]>(`${environment.api.endpoints.rank}/players?perPage=${perPage}&searchString=${searchString}`);
   }
 
   /**

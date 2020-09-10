@@ -12,4 +12,22 @@
     font-size: 11px;
     opacity: 0.5;
   }
+
+  .socials {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100px;
+    width: 100%;
+    margin-top: 10px;
+
+    i {
+      font-size: 25px;
+      color: rgba(255, 255, 255, 0.431);
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.863);
+      }
+    }
+  }
 }

@@ -4,6 +4,8 @@ import { PlayerRank } from 'src/app/models/PlayerRank';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-ngx';
 import { debounce } from 'src/app/utils/debounce';
 import { finalize } from 'rxjs/operators';
+import { NbMenuService, NbToastrService } from '@nebular/theme';
+import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-leaderboard',
@@ -18,6 +20,8 @@ export class LeaderboardComponent implements OnInit {
   players: PlayerRank[];
   playerCount = 10;
 
+  searchString = '';
+
   scrollbarOptions: OverlayScrollbars.Options = {
     className: 'os-theme-light',
     scrollbars: {
@@ -28,6 +32,9 @@ export class LeaderboardComponent implements OnInit {
     }
   };
 
+  items = [
+    { title: 'Copy Steam ID' },
+  ];
   @ViewChild('scrollel', { read: OverlayScrollbarsComponent })
   scrollEl: OverlayScrollbarsComponent;
 
@@ -41,7 +48,12 @@ export class LeaderboardComponent implements OnInit {
   }, 1000);
 
 
-  constructor(private api: ApiService, private changeDetector: ChangeDetectorRef) {  }
+  constructor(
+    private clipboard: ClipboardService,
+    private toastr: NbToastrService,
+    private api: ApiService,
+    private changeDetector: ChangeDetectorRef
+    ) {  }
 
   public ngOnInit(): void {
     this.updateData();
@@ -80,10 +92,18 @@ export class LeaderboardComponent implements OnInit {
     };
   }
 
+  public onSteamCopy(player: PlayerRank) {
+    this.clipboard.copyFromContent(player.uniqueid);
+    this.toastr.show('Succesfully Copied SteamID', 'Success!', {
+      icon: 'checkmark-circle-outline',
+      position: 'bottom-right'
+    });
+  }
+
   private updateData() {
     this.leaderboardLoading = true;
     this.changeDetector.detectChanges();
-    this.api.getAllRank(this.playerCount)
+    this.api.getAllRank(this.playerCount, this.searchString)
     .subscribe(val => {
       this.players = val;
       this.leaderboardLoading = false;

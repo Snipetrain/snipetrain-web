@@ -52,6 +52,23 @@ nb-layout-column {
   margin: 0 auto;
 }
 
+@media only screen and (max-width: 1115px) {
+  nb-layout-column {
+    flex: 1 !important;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
 .input-full-width::placeholder {
   color: #ffffff91 !important;
+}
+
+.nb-theme-custom-dark [nbInput].status-basic:focus {
+  background-color: #202020;
+  border-color: rgb(78, 19, 19) !important;
+}
+
+.nb-theme-custom-dark nb-menu .menu-item a:hover {
+  color: rgba(255, 255, 255, 0.452) !important;
 }

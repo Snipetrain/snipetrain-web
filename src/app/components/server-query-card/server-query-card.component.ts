@@ -3,6 +3,7 @@ import { Server, SrcdServer, ServerQuery } from 'src/app/models/Server';
 import { ApiService } from 'src/app/services/api.service';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { NbMenuService } from '@nebular/theme';
 
 @Component({
   selector: 'app-server-query-card',

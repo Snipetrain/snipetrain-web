@@ -27,6 +27,7 @@
     "eva-icons": "^1.1.2",
     "flag-icon-css": "^3.5.0",
     "ng-country-flags": "^1.0.7",
+    "ngx-clipboard": "^13.0.1",
     "ngx-infinite-scroll": "^9.0.0",
     "overlayscrollbars": "^1.13.0",
     "overlayscrollbars-ngx": "^0.2.2",
