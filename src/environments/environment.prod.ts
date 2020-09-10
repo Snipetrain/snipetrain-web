@@ -6,5 +6,6 @@ export const environment = {
       rank: '',
       srcds: ''
     }
-  }
+  },
+  serverQueryInterval: 10000
 };

@@ -10,7 +10,8 @@ export const environment = {
       rank: 'http://localhost:8090/api/rank',
       srcds: 'http://localhost:8090/api/srcds',
     }
-  }
+  },
+  serverQueryInterval: 10000
 };
 
 /*

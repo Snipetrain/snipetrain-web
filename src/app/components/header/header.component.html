@@ -1,10 +1,13 @@
 <div class="header">
   <div class="sections">
+    <div class="section query">
+      <app-server-query-card *ngIf="(servers$ | async) as servers" [serverQuery]="servers[0]"></app-server-query-card>
+    </div>
     <div class="section logo">
       <img src="../../../assets/images/logo.png" alt="Logo">
     </div>
-    <div class="section">
-
+    <div class="section query">
+      <app-server-query-card *ngIf="(servers$ | async) as servers" inversed="true" [serverQuery]="servers[1]"></app-server-query-card>
     </div>
   </div>
 </div>

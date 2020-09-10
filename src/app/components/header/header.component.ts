@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
+import { Observable } from 'rxjs';
+import { Server } from 'src/app/models/Server';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  servers$: Observable<Server[]>;
+
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+    this.servers$ = this.api.getServers();
   }
 
 }
