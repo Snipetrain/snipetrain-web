@@ -46,6 +46,12 @@ html, body {
   font-family: source_sans_proregular !important;
 }
 
+nb-layout-column {
+  flex: 0.7 0 !important;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .input-full-width::placeholder {
   color: #ffffff91 !important;
 }

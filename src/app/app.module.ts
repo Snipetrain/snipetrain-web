@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ServerQueryCardComponent } from './components/server-query-card/server-query-card.component';
+import { SafeUrlPipe } from './pipes/SafeUrl.pipe';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     HeaderComponent,
     FooterComponent,
     LeaderboardComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ServerQueryCardComponent,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,

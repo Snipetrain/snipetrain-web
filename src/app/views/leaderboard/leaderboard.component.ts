@@ -50,12 +50,34 @@ export class LeaderboardComponent implements OnInit {
   public onLeaderboardScroll() {
     const currentY = this.scrollEl.osInstance().scroll().position.y + this.scrollEl.osInstance().scroll().handleLength.y;
     const contentHeight = this.listEl.nativeElement.offsetHeight;
-    const treshold = contentHeight * 0.3;
-    const difference = contentHeight - treshold;
+    const treshold = contentHeight * 0.7;
 
-    if (currentY > difference) {
+    if (currentY > treshold && contentHeight - currentY < 600) {
       this.debouncedUpdateLeaderboard();
     }
+  }
+
+  public getCountryClassName(countryCode: string) {
+    return `flag flag-${countryCode}`;
+  }
+
+  public getDisplayStats(player: PlayerRank) {
+
+    const minutesPlayed = parseInt(player.time, 10) / 60;
+    const kills = parseInt(player.kills, 10);
+    const deaths = parseInt(player.deaths, 10);
+    const played = parseInt(player.totalconnects, 10);
+
+    return {
+      minutesPlayed,
+      kills,
+      deaths,
+      played,
+
+      hoursPlayed: (minutesPlayed / 60).toFixed(2),
+      kdr: (kills / deaths).toFixed(2),
+      kpm: (kills / minutesPlayed).toFixed(2)
+    };
   }
 
   private updateData() {

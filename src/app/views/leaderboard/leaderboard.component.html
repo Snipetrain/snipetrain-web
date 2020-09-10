@@ -2,7 +2,6 @@
 <div class="leaderboard-container">
   <div class="title-line">
     <span class="title">Leaderboard</span>
-   <!--  <i class="fas fa-award"></i> -->
   </div>
   <div *ngIf="!players && leaderboardLoading" class="loader-container">
     <app-spinner  [size]="75"></app-spinner>
@@ -26,7 +25,7 @@
                       [class.second]="i+1 === 2"
                       [class.third]="i+1 === 3">
                       <span *ngIf="i+1 !== 1 && i+1 !== 2 && i+1 !== 3">{{i+1}}.</span>
-                      <div *ngIf="i+1 === 1 ||i+1 === 2 ||i+1 === 3" class="podium">
+                      <div *ngIf="i+1 === 1 || i+1 === 2 || i+1 === 3" class="podium">
                         <i  class="fas fa-trophy"></i>
                         <div [ngSwitch]="i+1">
                           <span *ngSwitchCase="1">1st</span>
@@ -34,22 +33,52 @@
                           <span *ngSwitchCase="3">3rd</span>
                         </div>
                       </div>
-                  </span>
+                    </span>
+                    <div class="flag-container">
+                      <span [className]="getCountryClassName(player.cc)"></span>
+                    </div>
                     <nb-user size="medium"
                       [name]="player.name"
-                      [title]="player.skill + ' Points'"
+                      [title]="player.skill + ' Skill Points'"
                       [picture]="player.avatar">
                     </nb-user>
                   </div>
+                  <div *ngIf="getDisplayStats(player) as stats" class="stats-container section">
+                    <div class="kdr-container container">
 
-                  <div class="stats-container section">
-
+                      <span class="kdr">
+                        <i class="fas fa-crosshairs"></i>
+                        {{stats.kdr}}
+                        <span class="label">KDR</span>
+                      </span>
+                      <span class="desc">
+                        <span class="highlight">{{stats.kills}}</span> Kills / <span class="highlight">{{stats.deaths}}</span> Deaths
+                      </span>
+                    </div>
+                    <div class="kpm-container container">
+                      <span class="kpm">
+                        <i class="fas fa-hourglass-end"></i>
+                        {{stats.kpm}}
+                        <span class="label">KPM</span>
+                      </span>
+                      <span class="desc">
+                        <span class="highlight">{{stats.kills}}</span> Kills / <span class="highlight">{{stats.minutesPlayed.toFixed()}}</span> Mins
+                      </span>
+                    </div>
+                    <div class="hours-container container">
+                      <span class="hours">
+                        <i class="far fa-clock"></i>
+                        {{stats.hoursPlayed}}
+                        <span class="label">HRS</span>
+                      </span>
+                      <span class="desc">
+                        Connected <span class="highlight">{{stats.played}}</span> times
+                      </span>
+                    </div>
                   </div>
-
                   <div class="actions-container section">
                     <i class="fas fa-ellipsis-v"></i>
                   </div>
-
                 </nb-list-item>
               </nb-list>
             </div>
@@ -69,8 +98,8 @@
           </div>
         </nb-card-body>
       </nb-card>
+      <iframe src="https://discordapp.com/widget?id=549306699308204040&theme=dark" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
     </div>
   </div>
 </div>
-<!-- <button (click)="test()">test</button> -->
 

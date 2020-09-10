@@ -43,23 +43,23 @@
         margin-top: 15px;
 
         .list-container {
-          max-width: 815px;
           display: flex;
           justify-content: space-between;
 
           .section {
             padding: 5px;
             height: 100%;
-/*             border-right: 1px solid #20202088;
-            &:last-child {
-              border-right: none !important;
-            } */
           }
 
           .userprofile-container {
             display: flex;
             align-items: center;
             width: 30%;
+
+            .flag-container {
+              max-width: 24px;
+            }
+
             .position {
               margin-right: 10px;
               opacity: 0.8;
@@ -91,6 +91,31 @@
 
           .stats-container {
             width: 60%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            i {
+              margin-right: 5px;
+            }
+
+            .container {
+              display: flex;
+              flex-direction: column;
+              .label {
+                color: #50575f;
+              }
+
+              .desc {
+                font-size: 12px;
+                opacity: 0.5;
+                text-align: center;
+                .highlight {
+                  opacity: 1;
+                }
+              }
+            }
+
           }
 
           .actions-container {
@@ -119,6 +144,13 @@
 
     .filters {
       width: 25%;
+      display:flex;
+      flex-direction: column;
+      max-height: 682px;
+
+      iframe {
+        height: 100%;
+      }
     }
   }
 }
