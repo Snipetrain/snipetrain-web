@@ -3,8 +3,8 @@ export const environment = {
   version: '1.0.4',
   api: {
     endpoints: {
-      rank: '',
-      srcds: ''
+      rank: 'https://api.snipetrain.tf/api/rank',
+      srcds: 'https://api.snipetrain.tf/api/srcds'
     }
   },
   serverQueryInterval: 10000

@@ -95,8 +95,7 @@ export class LeaderboardComponent implements OnInit {
   public onSteamCopy(player: PlayerRank) {
     this.clipboard.copyFromContent(player.uniqueid);
     this.toastr.show('Succesfully Copied SteamID', 'Success!', {
-      icon: 'checkmark-circle-outline',
-      position: 'bottom-right'
+      icon: 'checkmark-circle-outline'
     });
   }
 
