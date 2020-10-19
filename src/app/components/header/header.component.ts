@@ -10,12 +10,10 @@ import { Server } from 'src/app/models/Server';
 })
 export class HeaderComponent implements OnInit {
 
-  servers$: Observable<Server[]>;
-
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    this.servers$ = this.api.getServers();
+
   }
 
 }

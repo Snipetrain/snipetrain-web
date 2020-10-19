@@ -1,13 +1,17 @@
 <div class="header">
   <div class="sections">
-    <div class="section query">
-      <app-server-query-card *ngIf="(servers$ | async) as servers" [serverQuery]="servers[0]"></app-server-query-card>
-    </div>
     <div class="section logo">
       <img src="../../../assets/images/logo.png" alt="Logo">
     </div>
-    <div class="section query">
-      <app-server-query-card *ngIf="(servers$ | async) as servers" inversed="true" [serverQuery]="servers[1]"></app-server-query-card>
+    <div class="section nav">
+      <a routerLink="/home" routerLinkActive="selected" class="menu-item">Home</a>
+      <a routerLink="/leaderboard" routerLinkActive="selected" class="menu-item">Leaderboard</a>
+      <a routerLink="/servers" routerLinkActive="selected" class="menu-item">Servers</a>
+      <a href="https://forums.snipetrain.tf" class="menu-item">Forums</a>
+      <a href="https://sourcebans.snipetrain.tf" class="menu-item">Sourcebans</a>
+    </div>
+    <div class="section steamlogin">
+      <img src="../../../assets/images/steam_login_01.png" alt="steam_login">
     </div>
   </div>
 </div>
