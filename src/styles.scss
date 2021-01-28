@@ -46,6 +46,13 @@ html, body {
   font-family: source_sans_proregular !important;
 }
 
+.nb-theme-custom-dark nb-card {
+  border: 1px solid !important;
+  border-radius: 5px;
+  border-image: linear-gradient(-270deg, #ff000030 0%, #7b0c0c38 100%) 1 !important;
+  box-shadow: 0 0.5rem 0.5rem 0 rgba(78, 19, 19, 0.24);
+}
+
 nb-layout-column {
   flex: 0.7 0 !important;
   max-width: 1200px;
@@ -71,4 +78,10 @@ nb-layout-column {
 
 .nb-theme-custom-dark nb-menu .menu-item a:hover {
   color: rgba(255, 255, 255, 0.452) !important;
+}
+
+.servers-container {
+  .nb-theme-custom-dark a {
+    color: #820103 !important;
+  }
 }

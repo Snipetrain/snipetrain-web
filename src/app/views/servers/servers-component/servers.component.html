@@ -1,0 +1,72 @@
+<div class="servers-container">
+  <div class="row">
+    <nb-flip-card [flipped]="server.flipped" [showToggleButton]="false"  *ngFor="let server of servers$ | async">
+      <nb-card-front>
+        <nb-card>
+          <nb-card-header>{{server.server.name}}</nb-card-header>
+          <nb-card-body>
+            <div class="properties">
+              <div class="property">
+                <i class="fas fa-users"></i>
+                <label for="players">Players :</label>
+                {{server.server.players.player.length}} / {{server.server.max}}
+              </div>
+              <div class="property">
+                <i class="fas fa-map"></i>
+                <label for="players">Map :</label>
+                {{server.server.map}}
+              </div>
+              <div class="property">
+                <i class="fas fa-code"></i>
+                <label for="players">IP :</label>
+                {{server.server.addr}}:{{server.server.port}}
+              </div>
+            </div>
+            <div class="actions">
+              <button (click)="flipCard(server)" nbButton outline class="flip">Show Scoreboard</button>
+              <button nbButton outline class="join">Join Server</button>
+            </div>
+          </nb-card-body>
+        </nb-card>
+      </nb-card-front>
+      <nb-card-back>
+        <nb-card>
+          <nb-card-header>Currently Playing</nb-card-header>
+          <nb-card-body>
+            <div *ngIf="server.server.teams.team.length > 0; else noPlayers" class="teams">
+              <div *ngFor=" let team of server.server.teams.team" class="team">
+                <div class="title">{{team.name}}</div>
+                <div class="players">
+                  <div *ngFor="let player of getTeamPlayers(team.name, server.server.players)" class="player">
+                    <span class="field name">
+                      #{{player.rank}} ({{player.skill}})
+                    </span>
+                    <span class="field name">
+                      <i class="fas fa-user"></i>
+                      {{player.name}}
+                    </span>
+                    <span class="field">
+                      <i class="fas fa-crosshairs"></i>
+                      {{player.kills}}
+                    </span>
+                    <span class="field">
+                      <i class="fas fa-skull"></i>
+                      {{player.deaths}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ng-template #noPlayers class="no-players">
+              No players playing currently.
+            </ng-template>
+            <div class="actions">
+              <button (click)="flipCard(server)" nbButton outline class="flip">Show Scoreboard</button>
+              <button nbButton outline class="join">Join Server</button>
+            </div>
+          </nb-card-body>
+        </nb-card>
+      </nb-card-back>
+    </nb-flip-card>
+  </div>
+</div>

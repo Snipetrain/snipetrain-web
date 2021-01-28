@@ -4,6 +4,8 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { PlayerRank } from '../models/PlayerRank';
 import { ServerQuery, Server } from '../models/Server';
+import { NewsArticle } from '../models/News';
+import { ServerInfo } from '../models/ServerInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +19,14 @@ export class ApiService {
    * getAllRank
    */
   public getAllRank(perPage: number, searchString = ''): Observable<PlayerRank[]> {
-    return this.http.get<PlayerRank[]>(`${environment.api.endpoints.rank}/players?perPage=${perPage}&searchString=${searchString}`);
+    return this.http.get<PlayerRank[]>(`${environment.endpoints.api.rank}/players?perPage=${perPage}&searchString=${searchString}`);
   }
 
   /**
    * getAllRank
    */
   public getRank(steamId: string): Observable<PlayerRank[]> {
-    return this.http.get<PlayerRank[]>(`${environment.api.endpoints.rank}/player?steamId=${steamId}`);
+    return this.http.get<PlayerRank[]>(`${environment.endpoints.api.rank}/player?steamId=${steamId}`);
   }
 
 
@@ -32,14 +34,21 @@ export class ApiService {
    * getServers
    */
   public getServers() {
-    return this.http.get<Server[]>(`${environment.api.endpoints.srcds}/GetServers`);
+    return this.http.get<Server[]>(`${environment.endpoints.api.serverInfo}/GetServers`);
   }
 
   /**
    * getServerQuery
    */
-  public getServerQuery(hostname: string, port: number) {
-    return this.http.get<ServerQuery>(`${environment.api.endpoints.srcds}/GetServerStatus?host=${hostname}&port=${port}`);
+  public getServersInfo() {
+    return this.http.get<ServerInfo[]>(`${environment.endpoints.api.serverInfo}`);
+  }
+
+  /**
+   * getNews
+   */
+  public getNews() {
+    return this.http.get<NewsArticle[]>(`${environment.endpoints.api.news}`);
   }
 
 }

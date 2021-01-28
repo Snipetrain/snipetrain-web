@@ -4,11 +4,15 @@
 
 export const environment = {
   production: false,
-  version: '1.0.4',
-  api: {
-    endpoints: {
-      rank: 'http://localhost:8090/api/rank',
-      srcds: 'http://localhost:8090/api/srcds',
+  version: '1.1.2',
+  endpoints: {
+    api: {
+      rank: 'http://localhost:5000/api/ranks',
+      serverInfo: 'http://localhost:5000/api/serverinfo',
+      news: 'http://localhost:5000/api/news'
+    },
+    socket: {
+      serverInfo: 'http://localhost:5000/serverinfohub'
     }
   },
   serverQueryInterval: 10000

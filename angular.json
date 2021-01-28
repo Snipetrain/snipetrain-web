@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "snipetrain-ui"
+    }
+  },
+  "defaultProject": "snipetrain-ui",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

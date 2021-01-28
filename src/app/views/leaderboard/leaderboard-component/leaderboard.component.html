@@ -4,7 +4,7 @@
     <span class="title">Leaderboard</span>
   </div>
   <div *ngIf="!players && leaderboardLoading" class="loader-container">
-    <app-spinner  [size]="75"></app-spinner>
+    <app-spinner [size]="75"></app-spinner>
   </div>
   <div class="grid">
     <div *ngIf="players" class="leaderboard">
@@ -45,7 +45,6 @@
                   </div>
                   <div *ngIf="getDisplayStats(player) as stats" class="stats-container section">
                     <div class="kdr-container container">
-
                       <span class="kdr">
                         <i class="fas fa-crosshairs"></i>
                         {{stats.kdr}}

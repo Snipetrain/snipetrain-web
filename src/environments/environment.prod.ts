@@ -1,10 +1,14 @@
 export const environment = {
-  production: true,
-  version: '1.0.4',
-  api: {
-    endpoints: {
-      rank: 'https://api.snipetrain.tf/api/rank',
-      srcds: 'https://api.snipetrain.tf/api/srcds'
+  production: false,
+  version: '1.1.2',
+  endpoints: {
+    api: {
+      rank: 'https://api.snipetrain.tf/api/ranks',
+      serverInfo: 'https://api.snipetrain.tf/api/serverinfo',
+      news: 'https://api.snipetrain.tf/api/news'
+    },
+    socket: {
+      serverInfo: 'https://api.snipetrain.tf/serverinfohub'
     }
   },
   serverQueryInterval: 10000

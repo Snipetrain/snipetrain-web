@@ -32,9 +32,6 @@ export class LeaderboardComponent implements OnInit {
     }
   };
 
-  items = [
-    { title: 'Copy Steam ID' },
-  ];
   @ViewChild('scrollel', { read: OverlayScrollbarsComponent })
   scrollEl: OverlayScrollbarsComponent;
 

@@ -1,0 +1,54 @@
+.servers-container {
+  .row {
+    display: flex;
+    justify-content: space-evenly;
+    nb-flip-card {
+      max-width: 500px;
+    }
+  }
+
+  .actions {
+    margin-top: 15px;
+  }
+
+  .teams {
+    .team {
+      margin: 5px 0;
+
+      .title {
+        font-weight: bold;
+      }
+
+      .players {
+
+        .player {
+          opacity: 0.7;
+          margin-left: 5px;
+          border-radius: 5px;
+          padding: 1px 5px;
+          display: flex;
+          justify-content: flex-start;
+
+          &:nth-child(even) {
+            background-color: #8218188c;
+          }
+
+          .field {
+            margin: 0 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.properties {
+  .property {
+    i {
+      margin-right: 5px;
+    }
+    label {
+      font-weight: bolder;
+    }
+  }
+}

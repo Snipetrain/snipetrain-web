@@ -1,0 +1,38 @@
+<div class="home-container">
+  <div class="intro-container">
+    <nb-card class="card">
+      <div class="card-content">
+        <span class="title">Introduction</span>
+        <p class="body">
+          Sed cursus turpis vitae tortor. Vestibulum volutpat pretium libero. Praesent nec nisl a purus blandit viverra. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Sed in libero ut nibh placerat accumsan.
+
+  Praesent ac sem eget est egestas volutpat. Aliquam erat volutpat.
+        </p>
+      </div>
+    </nb-card>
+    <iframe src="https://discordapp.com/widget?id=549306699308204040&theme=dark" height="450" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  </div>
+  <div class="news-container">
+    <div class="loading-container">
+      <app-spinner *ngIf="newsLoading" [size]="75"></app-spinner>
+    </div>
+    <overlay-scrollbars *ngIf="!newsLoading" #scrollel [options]="scrollbarOptions" class="list">
+      <div class="news-items">
+        <nb-card *ngFor="let news of news$ | async" class="card news-item">
+          <div class="card-content">
+            <span class="title">
+              {{news.title}}
+            </span>
+            <p class="body">
+              {{news.body}}
+            </p>
+            <div class="footer">
+              <span class="author"><i class="far fa-user"></i>{{news.author}}</span>
+              <span class="timestamp"><i class="far fa-calendar-alt"></i>{{news.postedDate.toString()}}</span>
+            </div>
+          </div>
+        </nb-card>
+      </div>
+    </overlay-scrollbars>
+  </div>
+</div>
